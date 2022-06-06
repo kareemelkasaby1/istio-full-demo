@@ -1,0 +1,16 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: frontend-ingress
+  namespace: default
+spec:  
+  selector:
+    matchLabels:
+      app: productpage
+  rules:
+  - to:
+    - operation:
+        methods: ["GET"]
+    when:
+    - key: request.auth.claims[foo]
+      values: ["bar"]

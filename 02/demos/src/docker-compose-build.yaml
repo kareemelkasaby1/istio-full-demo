@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  details-api:
+    image: sixeyed/bookinfo-details:v2
+    build:
+      context: details-api
+
+  productpage:
+    image: sixeyed/bookinfo-productpage:v2
+    build:
+      context: productpage
