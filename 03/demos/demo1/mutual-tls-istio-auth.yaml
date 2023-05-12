@@ -6,6 +6,3 @@ metadata:
 spec:
   mtls:
     mode: STRICT
-  selector:
-    matchLabels:
-      app: reviews

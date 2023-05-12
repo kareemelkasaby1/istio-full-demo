@@ -12,7 +12,7 @@ Install `istioctl`:
 ```
 curl -L https://istio.io/downloadIstio | sh -
 
-cd istio-1.14.0
+cd istio-1.17.2
 
 export PATH=$PWD/bin:$PATH
 ```
@@ -26,7 +26,7 @@ istioctl --help
 
 istioctl profile list
 
-istioctl manifest generate --set profile=demo > ../istio.yaml
+istioctl manifest generate --set profile=demo > istio.yaml
 ```
 
 Install `Istio` components:
@@ -49,6 +49,8 @@ kubectl get all -n istio-system
 Configure default namespance:
 
 ```
+istioctl analyze
+
 kubectl label namespace default istio-injection=enabled
 ```
 

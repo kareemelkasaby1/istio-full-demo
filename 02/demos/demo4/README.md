@@ -7,6 +7,8 @@ Add outlier detection to a load-balanced servcie so unhealthy endpoints are remo
 Deploy Istio & bookinfo:
 
 ```
+../../../kube/cleanup.sh
+
 kubectl apply -f ../setup/
 ```
 
@@ -33,7 +35,7 @@ kubectl describe dr details
 Check logs:
 
 ```
-kubectl logs deployments/details-v2 -f
+kubectl logs -l version=v2 -f
 ```
 
 ## 4.2 Apply circuit breaker

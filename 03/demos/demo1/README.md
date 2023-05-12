@@ -7,6 +7,8 @@ Encrypting traffic between services with TLS and requiring a client certificate.
 Deploy Istio, bookinfo & legacy app:
 
 ```
+../../../kube/cleanup.sh
+
 kubectl apply -f ../setup/
 ```
 

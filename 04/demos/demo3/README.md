@@ -7,7 +7,7 @@ Using [Jaegar](https://www.jaegertracing.io) to visualize trace spans and invest
 Deploy a [Gateway and VirtualService](jaegar.yaml) for Jaegar:
 
 ```
-istioctl dashboard jaegar
+istioctl dashboard jaeger
 ```
 
 > Browse to http://localhost:15032 

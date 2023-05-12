@@ -7,6 +7,8 @@ Launch new version of the reviews service which only the test user can see.
 Deploy Istio & bookinfo:
 
 ```
+../../../kube/cleanup.sh
+
 kubectl apply -f ../setup/
 ```
 

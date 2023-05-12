@@ -7,6 +7,8 @@ Launch a new version of the homepage, and switch the domain between live and tes
 Deploy Istio & bookinfo:
 
 ```
+../../../kube/cleanup.sh
+
 kubectl apply -f ../setup/
 ```
 

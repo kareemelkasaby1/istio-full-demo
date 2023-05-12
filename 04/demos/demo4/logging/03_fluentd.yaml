@@ -10,17 +10,11 @@ metadata:
   name: fluentd
   namespace: kube-system
 rules:
-- apiGroups:
-  - ""
-  resources:
-  - pods
-  - namespaces
-  verbs:
-  - get
-  - list
-  - watch
+- apiGroups: [""]
+  resources: ["pods", "namespaces"]
+  verbs: ["get", "list", "watch"]
 ---
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: fluentd
