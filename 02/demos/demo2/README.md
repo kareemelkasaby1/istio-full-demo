@@ -45,9 +45,24 @@ cat C:\Windows\System32\drivers\etc\hosts
 # on Linux or Mac add to `/etc/hosts`
 ```
 
+<div align="center">
+<img src="screenshots/hosts.png">
+<i>hosts file</i>
+</div>
+
 > Browse to live v1 set at http://bookinfo.local/productpage
 
 > Browse to test v2 site at http://test.bookinfo.local/productpage
+
+<div align="center">
+<img src="screenshots/blue-green-v1.png">
+<i>bookinfo.local/productpage (reviews v1)</i>
+</div>
+
+<div align="center">
+<img src="screenshots/blue-green-v2.png">
+<i>test.bookinfo.local/productpage (reviews v2)</i>
+</div>
 
 ## 2.2 Blue/green deployment - flip
 
@@ -65,6 +80,11 @@ kubectl describe vs bookinfo
 
 > Live is now v2 at http://bookinfo.local/productpage
 
+<div align="center">
+<img src="screenshots/bookinfo-updated-to-v2.png">
+<i>bookinfo.local/productpage (reviews v2)</i>
+</div>
+
 Check test deployment:
 
 ```
@@ -72,6 +92,11 @@ kubectl describe vs bookinfo-test
 ```
 
 > Test is now v1 at http://test.bookinfo.local/productpage
+
+<div align="center">
+<img src="screenshots/test.bookinfo-updated-to-v1.png">
+<i>test.bookinfo.local/productpage (reviews v1)</i>
+</div>
 
 ## 2.3 Blue/green deployment - flip back
 

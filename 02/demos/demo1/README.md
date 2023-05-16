@@ -28,7 +28,19 @@ kubectl get pods -l app=reviews
 kubectl describe svc reviews
 ```
 
+<img src="screenshots/deploy-reviews-v2.png">
+
 > Browse to http://localhost/productpage and refresh, requests load-balanced between v1 and v2
+
+<div align="center">
+<img src="screenshots/reviews-v1.png">
+<i>reviews v1</i>
+</div>
+
+<div align="center">
+<img src="screenshots/reviews-v2.png">
+<i>reviews v2</i>
+</div>
 
 ## 1.2 Switch to dark launch
 
@@ -42,6 +54,15 @@ kubectl describe vs reviews
 
 > Browse to http://localhost/productpage - all users see v1 except `testuser` who sees v2
 
+<div align="center">
+<img src="screenshots/darktest-v1.png">
+<i>darktest v1</i>
+</div>
+
+<div align="center">
+<img src="screenshots/darktest-v2.png">
+<i>darktest v2</i>
+</div>
 
 ## 1.3 Test with network delay
 
@@ -62,5 +83,10 @@ kubectl apply -f reviews-v2-tester-503.yaml
 ```
 
 > Browse to http://localhost/productpage -  `testuser` gets 50% failures, all others OK
+
+<div align="center">
+<img src="screenshots/darktest-v2-fail.png">
+<i>darktest-v2 fail testcase</i>
+</div>
 
 > Go to [demo2](../demo2/README.md)

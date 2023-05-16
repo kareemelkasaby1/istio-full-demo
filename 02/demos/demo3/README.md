@@ -23,6 +23,16 @@ kubectl describe vs bookinfo
 
 > Browse to http://bookinfo.local/productpage & refresh, mostly v1 responses with some v2
 
+<div align="center">
+<img src="screenshots/canary-70-v1.png">
+<i>70% chance to get review v1</i>
+</div>
+
+<div align="center">
+<img src="screenshots/canary-30-v2.png">
+<i>30% chance to get review v2</i>
+</div>
+
 ## 3.2 Canary rollout
 
 Shift traffic to v2:
@@ -50,5 +60,15 @@ _e.g. in Firefox_
 - Add `bookinfo.local` - with `Block`
 
 > Browse to http://bookinfo.local/productpage & refresh - back to 70/30 split
+
+<div align="center">
+<img src="screenshots/canary-without-cookies-v1.png">
+<i>70% chance to get review v1</i>
+</div>
+
+<div align="center">
+<img src="screenshots/canary-with-cookies-v2.png">
+<i>once get review v2 you will always get it</i>
+</div>
 
 > Go to [demo4](../demo4/README.md)

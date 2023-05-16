@@ -38,6 +38,16 @@ Check logs:
 kubectl logs -l version=v2 -f
 ```
 
+<div align="center">
+<img src="screenshots/healthy-pod.png">
+<i>healthy pod</i>
+</div>
+
+<div align="center">
+<img src="screenshots/unhealthy-pod.png">
+<i>unhealthy pod</i>
+</div>
+
 ## 4.2 Apply circuit breaker
 
 Deploy [updated rules with outlier detection](details-circuit-breaker.yaml):

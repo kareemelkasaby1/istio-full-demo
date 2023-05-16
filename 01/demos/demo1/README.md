@@ -34,6 +34,8 @@ Install `Istio` components:
 istioctl install --set profile=demo
 ```
 
+<img src="screenshots/install-istio-demo.png">
+
 ## 1.2 Verify Istio
 
 Running objects:
@@ -41,6 +43,8 @@ Running objects:
 ```
 kubectl get all -n istio-system
 ```
+
+<img src="screenshots/verify-istio.png">
 
 > All components have memory requests
 
@@ -59,6 +63,8 @@ Check label:
 ```
 kubectl describe namespace default
 ```
+
+<img src="screenshots/configure-auto-proxy.png">
 
 ## 1.4 Check what's running
 

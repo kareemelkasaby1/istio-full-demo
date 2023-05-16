@@ -30,7 +30,11 @@ Check gateway:
 kubectl get svc istio-ingressgateway -n istio-system
 ```
 
+<img src="screenshots\verify-bookinfo-v1-gateway.png">
+
 > Browse to http://localhost/productpage
+
+<img src ="screenshots\verify-product-page.png">
 
 ## 2.3 Check pods have proxy auto-injected
 
