@@ -16,6 +16,11 @@ istioctl dashboard jaeger
 - Follow traces - OK & failing
 - Zoom into timeline & check tags
 
+<div align="center">
+<img src="screenshots/jaeger.png">
+<i>jaeger</i>
+</div>
+
 ## 3.2 Add service latency
 
 Update the [product page](productpage-delay.yaml) to add 10s delays:
