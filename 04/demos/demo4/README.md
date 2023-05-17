@@ -30,5 +30,11 @@ docker run  fortio/fortio load -c 32 -qps 25 -t 30s http://MACHINE_IP/productpag
 
 > Refresh Kibana at http://localhost:443 
 
+<div align="center">
+<img src="screenshots/kibana.png">
+<i>kibana</i>
+</div>
+
+
 - Filter on `kubernetes.container.name` _is_ `istio-proxy`
 - These are Envoy logs 

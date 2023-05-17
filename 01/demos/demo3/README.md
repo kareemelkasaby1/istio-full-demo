@@ -12,6 +12,8 @@ kubectl apply -f details-virtualservice.yaml
 
 > Browse to http://localhost/productpage (same functionality)
 
+<img src="screenshots/page-with-details.png">
+
 ## 3.2 Deploy details service update which errors
 
 A bad service update - [details-bad-release.yaml](./details-bad-release.yaml)
@@ -27,6 +29,8 @@ kubectl logs -f -l app=details -c details
 ```
 
 > Browse to http://localhost/productpage - details call times out after 30 seconds
+
+<img src="screenshots/details-with-timeout.png">
 
 ## 3.3 Update virtual service with timeout
 

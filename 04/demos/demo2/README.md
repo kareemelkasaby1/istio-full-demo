@@ -30,6 +30,11 @@ docker run  fortio/fortio load -c 32 -qps 25 -t 30s http://MACHINE_IP/productpag
 
 - Back to _Graph_ view in Prometheus
 
+<div align="center">
+<img src="screenshots/prometheus.png">
+<i>prometheus</i>
+</div>
+
 ## 2.3 Publish the Grafana UI
 
 > New terminal
@@ -45,6 +50,11 @@ istioctl dashboard grafana
  - _Istio Mesh Dashboard_ - overview
  - _Istio Service Dashboard_ - drill down into service 
 
+<div align="center">
+<img src="screenshots/grafana-1.png">
+<i>grafana</i>
+</div>
+
 ## 2.4 Deploy a failing service
 
 Update the [v2 reviews service](reviews-v2-abort.yaml) to add `503` faults:
@@ -52,5 +62,9 @@ Update the [v2 reviews service](reviews-v2-abort.yaml) to add `503` faults:
 ```
 kubectl apply -f reviews-v2-abort.yaml
 ```
+<div align="center">
+<img src="screenshots/grafana-2.png">
+<i>grafana</i>
+</div>
 
 > Go to [demo3](../demo3/README.md)

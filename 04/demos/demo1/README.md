@@ -19,6 +19,11 @@ istioctl dashboard kiali
 - App graph in _Graph_
 - Check `productpage` in Kiali _Workloads_
 
+<div align="center">
+<img src="screenshots/kiali-ui.png">
+<i>Kiali UI</i>
+</div>
+
 ## 1.2 Canary deployment for v2
 
 Deploy [v2 product page](./v2/productpage-v2-canary.yaml) and [v2 reviews API](./v2/reviews-v2-canary.yaml) updates:
@@ -44,5 +49,9 @@ docker run  fortio/fortio load -c 32 -qps 25 -t 30s http://MACHINE_IP/productpag
 
 - Back to Kiali _Graph_
 
+<div align="center">
+<img src="screenshots/kiali-requests-load.png">
+<i>requests load with kiali</i>
+</div>
 
 > Go to [demo2](../demo2/README.md)

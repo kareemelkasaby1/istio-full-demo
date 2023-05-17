@@ -26,6 +26,11 @@ kubectl apply -f productpage-authz-deny-all.yaml
 
 > Browse to http://localhost/productpage -> `403`
 
+<div align="center">
+<img src="screenshots/productpage-without-auth.png">
+<i>access productpage without token</i>
+</div>
+
 You need to add an authentication header. In Firefox's network tab:
 
 - Refresh
@@ -55,6 +60,11 @@ Apply the [productpage auth just valid tokeny](productpage-auth-just-valid-token
 kubectl apply -f productpage-auth-just-valid-token.yaml
 ```
 
+<div align="center">
+<img src="screenshots/productpage-with-auth.png">
+<i>access productpage with token</i>
+</div>
+
 ## 3.5 Allow access by issuer
 
 Apply an [authorization policy which allows access by issuer](productpage-authz-allow-issuer.yaml):
@@ -72,6 +82,11 @@ Apply an [authorization policy which allows access by subject](productpage-authz
 kubectl apply -f productpage-authz-allow-subject.yaml
 ```
 > Repeat edit & send request -> `403`
+
+<div align="center">
+<img src="screenshots/productpage-with-wrong-token.png">
+<i>access productpage wrong token</i>
+</div>
 
 ## 3.7 Allow access by custom claim
 
