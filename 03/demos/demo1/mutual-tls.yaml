@@ -6,3 +6,135 @@ metadata:
 spec:
   mtls:
     mode: DISABLE
+    # mode: PERMISSIVE
+    # mode: STRICT
+
+# In Istio, the PeerAuthentication resource is used to define how mutual TLS (mTLS) is applied to the communication between services. The mode field under the mtls section of the PeerAuthentication spec controls the behavior of mTLS. Here are the details of all the mode types available in PeerAuthentication:
+# Mode Types in PeerAuthentication
+
+#     DISABLE
+#     PERMISSIVE
+#     STRICT
+
+# Each mode has specific use cases and behaviors which control how mTLS is enforced for service-to-service communication.
+# 1. DISABLE
+
+#     Description: This mode completely disables mTLS for the specified scope.
+#     Behavior:
+#         No mTLS encryption will be used for communications between services.
+#         All traffic is treated as plain HTTP or TCP, depending on the application protocol.
+#     Use Case: Suitable for environments where mTLS is not required or where other security mechanisms are in place. This might be useful during initial setup or in development environments where simplicity is preferred over security.
+
+# Example Configuration:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "disable-mtls"
+#   namespace: default
+# spec:
+#   mtls:
+#     mode: DISABLE
+
+# 2. PERMISSIVE
+
+#     Description: This mode allows both mTLS and plain text traffic. It can be used to gradually enable mTLS.
+#     Behavior:
+#         Services will accept both mTLS and non-mTLS connections.
+#         If a client uses mTLS, the connection will be secured. If a client does not use mTLS, the connection will still be accepted but will not be encrypted.
+#     Use Case: Ideal for transition periods when migrating to mTLS. This mode ensures backward compatibility and allows for a gradual rollout of mTLS across services.
+
+# Example Configuration:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "permissive-mtls"
+#   namespace: default
+# spec:
+#   mtls:
+#     mode: PERMISSIVE
+
+# 3. STRICT
+
+#     Description: This mode enforces mTLS for all communications.
+#     Behavior:
+#         Only connections that use mTLS are accepted.
+#         Any attempt to communicate without mTLS will be rejected.
+#     Use Case: Best for production environments where security is critical. Ensures that all service-to-service communication is encrypted and authenticated.
+
+# Example Configuration:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "strict-mtls"
+#   namespace: default
+# spec:
+#   mtls:
+#     mode: STRICT
+
+# Applying PeerAuthentication to Different Scopes
+
+# PeerAuthentication policies can be applied at different levels:
+
+#     Mesh Level: Applies to all services in the mesh.
+#         To apply a mesh-wide policy, the PeerAuthentication resource should be created in the istio-system namespace with the name default.
+
+# Example:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "default"
+#   namespace: istio-system
+# spec:
+#   mtls:
+#     mode: STRICT
+
+#     Namespace Level: Applies to all services within a specific namespace.
+#         To apply to a specific namespace, create the PeerAuthentication resource in that namespace.
+
+# Example:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "namespace-policy"
+#   namespace: my-namespace
+# spec:
+#   mtls:
+#     mode: PERMISSIVE
+
+#     Workload Level: Applies to specific workloads (services or pods) within a namespace.
+#         Use selectors to target specific workloads.
+
+# Example:
+
+# yaml
+
+# apiVersion: security.istio.io/v1beta1
+# kind: PeerAuthentication
+# metadata:
+#   name: "workload-policy"
+#   namespace: my-namespace
+# spec:
+#   selector:
+#     matchLabels:
+#       app: my-app
+#   mtls:
+#     mode: STRICT
+
+# Summary
+
+# The PeerAuthentication resource in Istio allows fine-grained control over mTLS settings for service-to-service communication. The modes (DISABLE, PERMISSIVE, STRICT) provide flexibility to either disable mTLS, allow both encrypted and unencrypted traffic, or enforce strict mTLS. This granularity helps in securely managing services, transitioning to secure communication, and meeting the specific security needs of different environments and applications.

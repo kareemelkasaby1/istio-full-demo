@@ -52,7 +52,18 @@ spec:
   gateways:
     - bookinfo-gateway
   http:
-    - route:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
         - destination:
             host: productpage
             subset: v1
@@ -65,11 +76,22 @@ metadata:
   name: bookinfo-test
 spec:
   hosts:
-    - test.bookinfo.local
+  - test.bookinfo.local
   gateways:
-    - bookinfo-gateway
+  - bookinfo-gateway
   http:
-    - route:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
         - destination:
             host: productpage
             subset: v2

@@ -3,7 +3,7 @@
 > Adapted from the [Istio Quick Start](https://istio.io/latest/docs/setup/install/istioctl/)
 
 
-> install [istioctl](https://istio.io/latest/docs/setup/getting-started/#download), I using `istioctl V1.14` at the time of this course but I recommend to install V13.
+> install [istioctl](https://istio.io/latest/docs/setup/getting-started/#download), I using `istioctl 1.22.0` at the time of this course but I recommend to install V13.
 
 ## 1.1 Deploy Istio
 
