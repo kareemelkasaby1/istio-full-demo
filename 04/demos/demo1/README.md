@@ -2,6 +2,19 @@
 
 Using [Kiali](https://kiali.io) to graph active services and see the traffic flow between them.
 
+## 0.1
+Apply with enabling jaeger tracing [operator-tracing](operator-tracing.yaml)
+
+```
+istioctl install --set profile=demo  -f operator-tracing.yaml
+
+
+../../../kube/cleanup.sh
+
+
+kubectl apply -f ../setup/
+```
+
 ## 1.0 Apply istio addons:
 
 ```
